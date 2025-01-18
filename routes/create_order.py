@@ -25,7 +25,7 @@ def create_order():
     address = data.get('address')
     google_maps_location = data.get('google_maps_location', '')
     items = data.get('items', [])  # List of items with quantity and price
-    ordered_date = datetime.utcnow()
+    ordered_date = datetime.datetime.utcnow()
     if not name or not mobile_number or not address or not items:
         return jsonify({"error": "Name, mobile_number, address, and items are required"}), 400
 
