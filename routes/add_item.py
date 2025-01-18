@@ -142,3 +142,23 @@ def delete_item(item_id):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+@add_item_bp.route('/getitems', methods=['GET'])
+def get_all_items_by_category():
+    try:
+        # Fetch all categories and their items
+        categories = categories_collection.find({}, {"_id": 0, "category_name": 1, "items": 1})
+        
+        # Format the response with items grouped by category
+        result = []
+        for category in categories:
+            category_name = category.get("category_name", "Unknown")
+            items = convert_objectid(category.get("items", []))
+            result.append({
+                "category_name": category_name,
+                "items": items
+            })
+
+        return jsonify({"categories": result}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
