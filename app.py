@@ -1,4 +1,4 @@
-CORS(app) from flask import Flask
+from flask import Flask
 from routes.login import login_bp
 from routes.signup import signup_bp
 from routes.forgot_password import forgot_password_bp
