@@ -1,4 +1,4 @@
-from flask import Flask
+CORS(app) from flask import Flask
 from routes.login import login_bp
 from routes.signup import signup_bp
 from routes.forgot_password import forgot_password_bp
@@ -8,7 +8,7 @@ from routes.add_item import add_item_bp
 from routes.create_order import create_order_bp
 
 app = Flask(__name__)
-
+CORS(app)
 # Register blueprints
 app.register_blueprint(login_bp)
 app.register_blueprint(signup_bp)
