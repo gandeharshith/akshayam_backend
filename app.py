@@ -6,7 +6,7 @@ from routes.add_category import add_category_bp
 from routes.delete_category import delete_category_bp
 from routes.add_item import add_item_bp
 from routes.create_order import create_order_bp
-
+from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 # Register blueprints
